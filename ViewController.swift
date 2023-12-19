@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var countryTextField: UITextField!
     @IBOutlet weak var countryError: UILabel!
     
-    var cancellables = Set<anycan
+    var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
             }
         } receiveValue: { countries in
             // code to show countries
-        }
+        }.store(in: &cancellables)
 
     }
 
